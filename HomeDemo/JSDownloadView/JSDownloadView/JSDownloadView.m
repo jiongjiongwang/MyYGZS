@@ -27,14 +27,6 @@
 
 @property (nonatomic, retain) UILabel *progressLabel;
 
-/* 波浪属性 */
-#warning 浪暂时不需要
-/*
-@property (nonatomic, assign) CGFloat offset;
-@property (nonatomic, assign) CGFloat waveCurvature;
-@property (nonatomic, assign) CGFloat waveSpeed;
-@property (nonatomic, assign) CGFloat waveHeight;
-*/
 
 @property (nonatomic, strong) JSAnimationService *service;
 
@@ -80,10 +72,6 @@
     self.progressWidth = 4;
     
     
-    //self.waveSpeed = 1.0;
-    //self.waveCurvature = .25;
-    //self.waveHeight = 3;
-    
     
     _progress = 0.0;
     isAnimating = NO;
@@ -105,7 +93,6 @@
     {
         _maskCircleLayer = [self getOriginLayer];
         _maskCircleLayer.strokeColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3].CGColor;
-        //_maskCircleLayer.strokeColor = [UIColor redColor].CGColor;
         
         UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:[self bounds]];
         _maskCircleLayer.path = path.CGPath;
@@ -261,18 +248,7 @@
     }
 }
 
-/*
-- (void)waveWithHeight:(CGFloat)waveHeight
-{
-    
-    self.offset += self.waveSpeed;
-    
-    self.arrowLayer.path = [self.service getWavePathWithOffset:self.offset
-                                                    WaveHeight:waveHeight
-                                                 WaveCurvature:self.waveCurvature].CGPath;
-    
-}
-*/
+
 #pragma mark - Animation
 
 - (void)startAnimationBeforeCircle
@@ -340,12 +316,6 @@
     
 }
 
-- (void)waveAnimation
-{
-    //CGFloat progressWaveHeight = 10.0 * ( _progress - powf(_progress, 2)) ;
-    //浪
-    //[self waveWithHeight:_progress < 0.5 ? _waveHeight : progressWaveHeight];
-}
 
 #pragma mark - Animation Delegate
 
@@ -362,9 +332,6 @@
         //显示progress
         [self showProgressLabel:YES];
         
-        //浪
-#warning 浪暂时不需要
-        //_waveTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(waveAnimation) userInfo:nil repeats:YES];
         
         if ([self.delegate respondsToSelector:@selector(animationStart)])
         {

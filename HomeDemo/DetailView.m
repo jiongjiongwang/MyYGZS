@@ -49,8 +49,6 @@
         self.backgroundColor = [UIColor clearColor];
         
         
-        //self.backgroundColor = [UIColor colorWithPatternImage:[[UIImage ScreenShot] applyLightEffect]];
-        
         UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         
         backView.backgroundColor = [UIColor colorWithPatternImage:[[UIImage ScreenShot] applyLightEffect]];
