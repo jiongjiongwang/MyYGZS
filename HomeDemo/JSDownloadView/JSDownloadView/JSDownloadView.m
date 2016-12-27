@@ -168,6 +168,10 @@
         _progressLabel = [[UILabel alloc] initWithFrame:[self.service getProgressRect]];
         _progressLabel.textColor = [UIColor whiteColor];
         _progressLabel.textAlignment = NSTextAlignmentCenter;
+        
+        CGFloat lineWidth = _progressLabel.bounds.size.width * 3/5;
+        //[_progressLabel setFont:[UIFont systemFontOfSize:20]];
+        [_progressLabel setFont:[UIFont systemFontOfSize:lineWidth]];
         _progressLabel.adjustsFontSizeToFitWidth = YES;
         _progressLabel.text = @"00%";
         [self addSubview:_progressLabel];

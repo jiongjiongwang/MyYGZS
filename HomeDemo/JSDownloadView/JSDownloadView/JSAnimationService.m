@@ -131,8 +131,10 @@ static  NSString *keyPath_ContentW = @"contentsRect.size.width";
 
 - (void)setViewRect:(CGRect)viewRect
 {
-    
+    //_viewRect:整个下载View的frame正方形大小
     _viewRect = viewRect;
+    
+    
     
     CGFloat viewWidth = CGRectGetWidth(viewRect);
     
@@ -147,6 +149,7 @@ static  NSString *keyPath_ContentW = @"contentsRect.size.width";
     arrowPointX = (viewWidth-arrowTW)/2;
     arrowPointY = viewWidth-(linePoinY+arrowTH);
     
+    //static const double lineWScale = 176.00/250.00;
     lineW = viewWidth * lineWScale;
     
     midPointX = (viewWidth-lineW)/2;
@@ -313,8 +316,8 @@ static  NSString *keyPath_ContentW = @"contentsRect.size.width";
 
 - (CGRect)getProgressRect
 {
-    CGFloat SW = CGRectGetWidth(self.viewRect);
-    return CGRectMake(midPointX, SW/4, lineW, lineW);
+    //CGFloat SW = CGRectGetWidth(self.viewRect);
+    return CGRectMake(midPointX, midPointX, lineW, lineW);
 }
 
 
